@@ -1,162 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>About Reachwave | Performance-Driven Lead Generation</title>
-  <meta name="description" content="Reachwave is a performance-driven lead generation agency helping service businesses grow with high-quality social media leads.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="description" content="Reachwave is a performance-driven lead generation agency helping service businesses grow through targeted digital marketing.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Reachwave | Performance-Driven Lead Generation</title>
+    <style>
+        :root {
+            --black: #111111;
+            --grey: #f6f6f6;
+            --text: #444444;
+            --yellow: #f5c400;
+        }
 
-  <style>
-    :root {
-      --black: #111111;
-      --grey: #f6f6f6;
-      --text: #444444;
-      --yellow: #f5c400;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: var(--black);
-      line-height: 1.7;
-    }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: var(--black);
+            line-height: 1.7;
+        }
 
-    .hero {
-      padding: 100px 20px 80px;
-      border-bottom: 1px solid #eee;
-    }
+        header {
+            background: var(--black);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    h1 {
-      font-size: 44px;
-      margin-bottom: 20px;
-    }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--yellow);
+        }
 
-    h2 {
-      font-size: 30px;
-      margin-bottom: 20px;
-      position: relative;
-    }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
 
-    h2::after {
-      content: "";
-      width: 60px;
-      height: 4px;
-      background: var(--yellow);
-      display: block;
-      margin-top: 10px;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-    p {
-      font-size: 18px;
-      color: var(--text);
-      max-width: 900px;
-    }
+        nav a:hover {
+            color: var(--yellow);
+        }
 
-    .highlight {
-      color: var(--black);
-      font-weight: bold;
-    }
+        .hero {
+            background: linear-gradient(135deg, var(--black) 0%, #2a2a2a 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
 
-    .section {
-      padding: 80px 20px;
-    }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--yellow);
+        }
 
-    .light-bg {
-      background: var(--grey);
-    }
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e0e0e0;
+        }
 
-    .values {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
 
-    .card {
-      background: #ffffff;
-      padding: 30px;
-      border-left: 4px solid var(--yellow);
-    }
+        .section {
+            margin-bottom: 60px;
+        }
 
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 14px;
-      color: #777;
-      border-top: 1px solid #eee;
-    }
-  </style>
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--black);
+            border-left: 5px solid var(--yellow);
+            padding-left: 15px;
+        }
+
+        .section p {
+            font-size: 18px;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--grey);
+            padding: 30px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: var(--black);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .stats {
+            background: var(--yellow);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 48px;
+            color: var(--black);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 18px;
+            color: var(--black);
+        }
+
+        .cta {
+            background: var(--black);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--yellow);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--black);
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(245, 196, 0, 0.4);
+        }
+
+        footer {
+            background: var(--grey);
+            padding: 30px 20px;
+            text-align: center;
+            color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <nav>
+            <div class="logo">Reachwave</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- HERO -->
-  <section class="hero">
+    <section class="hero">
+        <h1>About Reachwave</h1>
+        <p>We're a performance-driven lead generation agency dedicated to helping home improvement businesses scale through strategic digital marketing</p>
+    </section>
+
     <div class="container">
-      <h1>About Reachwave</h1>
-      <p>
-        Reachwave is a <span class="highlight">performance-driven lead generation agency</span>
-        helping service-based businesses scale through high-quality social media advertising.
-      </p>
-      <p>
-        We don’t believe in vanity metrics, long-term lock-ins, or generic campaigns.
-        Our focus is simple —
-        <span class="highlight">generate leads that actually convert into revenue</span>.
-      </p>
-    </div>
-  </section>
+        <section class="section">
+            <h2>Who We Are</h2>
+            <p>Reachwave is a specialized lead generation agency focused exclusively on home improvement services. We understand the unique challenges contractors, remodelers, and home service providers face when trying to grow their business in today's competitive digital landscape.</p>
+            <p>Our team combines expertise in digital advertising, conversion optimization, and the home improvement industry to deliver qualified leads that turn into real revenue for your business.</p>
+        </section>
 
-  <!-- APPROACH -->
-  <section class="section">
+        <section class="section">
+            <h2>Our Approach</h2>
+            <p>We don't believe in one-size-fits-all solutions. Every home improvement business is different, and we tailor our strategies to your specific services, target market, and growth goals. Our data-driven approach ensures every dollar you invest works harder to bring you qualified leads.</p>
+        </section>
+
+        <section class="section">
+            <h2>What We Do Best</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Targeted Ad Campaigns</h3>
+                    <p>We create and manage high-converting ad campaigns on Facebook, Google, and other platforms to reach homeowners actively seeking your services.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Lead Qualification</h3>
+                    <p>Not all leads are created equal. We filter and qualify prospects to ensure you're only spending time on homeowners ready to invest in their projects.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Performance Tracking</h3>
+                    <p>Complete transparency with real-time dashboards showing exactly where your leads come from and which campaigns deliver the best ROI.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Conversion Optimization</h3>
+                    <p>We continuously test and refine landing pages, ad copy, and targeting to maximize your lead quality and minimize cost per acquisition.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Industry Expertise</h3>
+                    <p>Deep knowledge of the home improvement market means we speak your language and understand your customers' needs.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Scalable Systems</h3>
+                    <p>Whether you're a small local contractor or a regional powerhouse, our systems scale with your business as you grow.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Qualified Leads Generated</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Active Clients</p>
+            </div>
+            <div class="stat-item">
+                <h3>3.2x</h3>
+                <p>Average ROI</p>
+            </div>
+            <div class="stat-item">
+                <h3>95%</h3>
+                <p>Client Retention Rate</p>
+            </div>
+        </div>
+    </section>
+
     <div class="container">
-      <h2>Our Approach</h2>
-      <p>
-        We design and manage social media campaigns with a sharp focus on intent,
-        targeting, and conversion quality. From audience research to ad creatives
-        and lead qualification, every step is optimised for measurable business outcomes.
-      </p>
+        <section class="section">
+            <h2>Why Home Improvement?</h2>
+            <p>The home improvement industry is our specialty because we've seen firsthand how traditional marketing falls short for contractors and service providers. Homeowners today start their search online, and they need to find you at the exact moment they're ready to hire.</p>
+            <p>We've invested years understanding what makes homeowners click, call, and commit to projects. From kitchen remodels to roofing replacements, HVAC installations to bathroom renovations, we know how to connect you with customers who are ready to invest in their homes.</p>
+        </section>
+
+        <section class="section">
+            <h2>Our Mission</h2>
+            <p>To be the most trusted growth partner for home improvement businesses, delivering consistent, high-quality leads that fuel sustainable business growth. We succeed when you succeed, and we measure our performance by the real revenue impact we create for our clients.</p>
+        </section>
     </div>
-  </section>
 
-  <!-- VALUES -->
-  <section class="section light-bg">
-    <div class="container">
-      <h2>What We Stand For</h2>
+    <section class="cta">
+        <h2>Ready to Grow Your Business?</h2>
+        <p style="color: #e0e0e0; font-size: 18px; margin-bottom: 10px;">Let's discuss how Reachwave can help you generate more qualified leads</p>
+        <a href="contact.html" class="cta-button">Get Started Today</a>
+    </section>
 
-      <div class="values">
-        <div class="card">
-          <h3>Quality Over Quantity</h3>
-          <p>
-            High-intent leads matter more than large volumes of unqualified enquiries.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Transparency</h3>
-          <p>
-            Clear communication, honest expectations, and full visibility into performance.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Performance Focus</h3>
-          <p>
-            Every campaign is measured by revenue impact, not surface-level metrics.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © 2026 Reachwave. All rights reserved.
-  </footer>
-
+    <footer>
+        <p>&copy; 2024 Reachwave. All rights reserved. | Specialized Lead Generation for Home Improvement Services</p>
+    </footer>
 </body>
 </html>
