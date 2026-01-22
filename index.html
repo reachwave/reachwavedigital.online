@@ -1,299 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reachwave | Lead Generation for Home Improvement</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reachwave - Performance Marketing for Home Improvement Businesses</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
 
-    body {
-      background: #ffffff;
-      color: #111;
-      line-height: 1.6;
-    }
+        /* Background Graphics */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
 
-    a {
-      text-decoration: none;
-    }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e5e5;
+            z-index: 1000;
+        }
 
-    /* NAVBAR */
-    header {
-      background: #0b0b0b;
-      padding: 18px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    header h2 {
-      color: #f5c400;
-      font-weight: 700;
-    }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
 
-    nav a {
-      color: #ffffff;
-      margin-left: 25px;
-      font-size: 15px;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
 
-    nav a:hover {
-      color: #f5c400;
-    }
+        nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
 
-    /* HERO */
-    .hero {
-      position: relative;
-      min-height: 90vh;
-      background:
-        radial-gradient(circle at center,
-          rgba(245,196,0,0.18),
-          rgba(0,0,0,0.9) 65%),
-        #0b0b0b;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+        nav a:hover {
+            color: #FFD700;
+        }
 
-    /* Grid overlay */
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-    }
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 900px;
-      padding: 20px;
-    }
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
 
-    .hero-content h1 {
-      font-size: clamp(2.6rem, 5vw, 3.8rem);
-      color: #f5c400;
-      margin-bottom: 20px;
-    }
+        section:first-of-type {
+            padding-top: 8rem;
+        }
 
-    .hero-content p {
-      color: #e0e0e0;
-      font-size: 1.1rem;
-      margin-bottom: 40px;
-    }
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            position: relative;
+        }
 
-    .hero-btn {
-      display: inline-block;
-      padding: 16px 38px;
-      background: #f5c400;
-      color: #000;
-      font-weight: 600;
-      border-radius: 6px;
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
 
-    .hero-btn:hover {
-      box-shadow: 0 10px 30px rgba(245,196,0,0.35);
-    }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
 
-    /* SECTIONS */
-    section {
-      padding: 90px 60px;
-    }
+        .hero p {
+            font-size: 1.3rem;
+            color: #4a4a4a;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-    }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: #1a1a1a;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border: 2px solid #1a1a1a;
+        }
 
-    .section-title h2 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-    }
+        .cta-button:hover {
+            background: #FFD700;
+            color: #1a1a1a;
+            border-color: #FFD700;
+        }
 
-    .section-title p {
-      color: #555;
-    }
+        .cta-button-secondary {
+            background: transparent;
+            color: #1a1a1a;
+            border: 2px solid #1a1a1a;
+        }
 
-    /* SERVICES */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
+        .cta-button-secondary:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
 
-    .service-card {
-      padding: 35px;
-      border: 1px solid #eee;
-      border-radius: 10px;
-      text-align: center;
-    }
+        /* Services Grid */
+        .services-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
 
-    .icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: #f5c400;
-      margin: 0 auto 20px;
-    }
+        .services-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
 
-    /* HOW IT WORKS */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-    }
+        .services-intro p {
+            font-size: 1.2rem;
+            color: #4a4a4a;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    .step {
-      padding: 30px;
-      background: #f9f9f9;
-      border-radius: 10px;
-    }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
 
-    .step span {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #f5c400;
-    }
+        .service-card {
+            padding: 2.5rem 2rem;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
 
-    /* CTA */
-    .cta {
-      background: #0b0b0b;
-      text-align: center;
-      color: #fff;
-      padding: 80px 20px;
-    }
+        .service-card:hover {
+            border-color: #FFD700;
+            transform: translateY(-4px);
+        }
 
-    .cta h2 {
-      color: #f5c400;
-      margin-bottom: 20px;
-    }
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
 
-    /* FOOTER */
-    footer {
-      background: #000;
-      color: #777;
-      text-align: center;
-      padding: 25px;
-      font-size: 14px;
-    }
+        .service-card p {
+            color: #4a4a4a;
+            line-height: 1.7;
+        }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-      }
+        /* How It Works */
+        .steps {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
 
-      nav {
-        margin-top: 10px;
-      }
-    }
-  </style>
+        .step {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: #1a1a1a;
+            color: #FFD700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .step-content p {
+            color: #4a4a4a;
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            color: #4a4a4a;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #a0a0a0;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #1a1a1a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                padding: 2rem;
+                border-bottom: 1px solid #e5e5e5;
+                gap: 1.5rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            section {
+                padding: 4rem 0;
+                min-height: auto;
+            }
+
+            .services-intro h2,
+            .about-content h2,
+            .contact-content h2 {
+                font-size: 2rem;
+            }
+
+            .step {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-  <!-- NAV -->
-  <header>
-    <h2>Reachwave</h2>
+    <!-- Navigation -->
     <nav>
-      <a href="#">Home</a>
-      <a href="#services">Services</a>
-      <a href="#how">How It Works</a>
-      <a href="#contact">Contact</a>
+        <div class="container">
+            <a href="#home" class="logo">Reachwave</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-  </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Ready to Grow Your Business?</h1>
-      <p>
-        We help home improvement businesses generate consistent,
-        high-quality leads through performance-driven social media advertising.
-      </p>
-      <a href="#contact" class="hero-btn">Get Started Today</a>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Ready to Grow Your Business?</h1>
+            <p>We help home improvement businesses generate consistent, high-quality leads through performance-driven social media advertising.</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
 
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="section-title">
-      <h2>Our Services</h2>
-      <p>Focused on results, not vanity metrics</p>
-    </div>
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="services-intro">
+                <h2>What We Do</h2>
+                <p>Focused, data-driven services designed to deliver real customer enquiries for your business.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Lead Generation via Social Media Ads</h3>
+                    <p>Targeted campaigns across Facebook and Instagram designed to reach homeowners actively seeking home improvement services.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Campaign Setup & Optimisation</h3>
+                    <p>Professional campaign architecture, creative development, and ongoing optimisation to maximize return on ad spend.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Audience Targeting</h3>
+                    <p>Precision targeting based on location, demographics, interests, and behaviours to reach your ideal customers.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Reporting & Performance Tracking</h3>
+                    <p>Transparent, real-time reporting on lead quality, cost per lead, and campaign performance metrics that matter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="services">
-      <div class="service-card">
-        <div class="icon"></div>
-        <h3>Lead Generation</h3>
-        <p>High-intent enquiries for home improvement services.</p>
-      </div>
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="services-intro">
+                <h2>How It Works</h2>
+                <p>A straightforward process focused on results, not complexity.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Discovery Call</h3>
+                        <p>We learn about your business, target customers, service area, and growth goals to build a tailored strategy.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Campaign Setup</h3>
+                        <p>We create your ads, set up targeting, and prepare landing pages optimized for conversions.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Launch & Optimise</h3>
+                        <p>Your campaign goes live. We monitor performance daily and make data-driven adjustments to improve results.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Deliver Leads</h3>
+                        <p>Qualified enquiries are sent directly to you in real time. You focus on converting them into customers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="service-card">
-        <div class="icon"></div>
-        <h3>Ad Optimisation</h3>
-        <p>Continuous testing to reduce cost per lead.</p>
-      </div>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2>About Reachwave</h2>
+                <p>Reachwave specialises in lead generation for home improvement businesses. We focus on delivering real customer enquiries through targeted social media campaigns, with transparent reporting and a results-aligned model.</p>
+                <p>We work exclusively with contractors, renovators, installers, and service providers who value quality over quantity. Our approach is built on performance data, not guesswork.</p>
+                <p>No hype. No buzzwords. Just clear communication, measurable outcomes, and a focus on what matters: growing your business with leads that convert.</p>
+            </div>
+        </div>
+    </section>
 
-      <div class="service-card">
-        <div class="icon"></div>
-        <h3>Transparent Reporting</h3>
-        <p>Clear performance metrics you can trust.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Let's Talk</h2>
+                <p>Ready to generate consistent, high-quality leads for your home improvement business? Get in touch and we'll discuss how Reachwave can help you grow.</p>
+                <div class="contact-buttons">
+                    <a href="mailto:hello@reachwave.com" class="cta-button">Email Us</a>
+                    <a href="https://wa.me/1234567890" class="cta-button cta-button-secondary">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- HOW IT WORKS -->
-  <section id="how">
-    <div class="section-title">
-      <h2>How It Works</h2>
-      <p>Simple, transparent, performance-driven</p>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Reachwave. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <div class="steps">
-      <div class="step">
-        <span>1</span>
-        <p>We set up targeted ads for your service area.</p>
-      </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
 
-      <div class="step">
-        <span>2</span>
-        <p>Leads are generated and sent directly to you.</p>
-      </div>
-
-      <div class="step">
-        <span>3</span>
-        <p>You close the deal and pay only on results.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta" id="contact">
-    <h2>Let’s Build Your Lead Pipeline</h2>
-    <p>Get clarity on how Reachwave can help your business grow.</p>
-    <br />
-    <a href="mailto:contact@reachwavedigital.online" class="hero-btn">Contact Us</a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Reachwave. All rights reserved.
-  </footer>
-
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    document.getElementById('nav-menu').classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-
