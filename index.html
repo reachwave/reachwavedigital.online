@@ -1,392 +1,316 @@
 <!DOCTYPE html>
-<html lang="en"><style>
-.hero {
-  position: relative;
-  min-height: 80vh;
-  background: #0b0b0b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* Glow graphic */
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 193, 7, 0.18),
-    rgba(255, 193, 7, 0)
-  );
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* Subtle grid */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 900px;
-  padding: 120px 20px;
-}
-
-.hero-content h1 {
-  color: #f5c400;
-}
-
-.hero-btn {
-  background: #f5c400;
-  color: #000;
-  padding: 16px 36px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-}
-</style>
+<html lang="en">
 <head>
-    <section class="hero">
-  <div class="hero-content">
-    <h1>Ready to Grow Your Business?</h1>
-    <p>Let's discuss how Reachwave can help you generate more qualified leads</p>
-    <a href="contact.html" class="hero-btn">Get Started Today</a>
-  </div>
-</section>
-    <style>
-        :root {
-            --black: #111111;
-            --grey: #f6f6f6;
-            --text: #444444;
-            --yellow: #f5c400;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reachwave | Lead Generation for Home Improvement</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #ffffff;
-            color: var(--black);
-            line-height: 1.7;
-        }
+    body {
+      background: #ffffff;
+      color: #111;
+      line-height: 1.6;
+    }
 
-        header {
-            background: var(--black);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    a {
+      text-decoration: none;
+    }
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* NAVBAR */
+    header {
+      background: #0b0b0b;
+      padding: 18px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--yellow);
-        }
+    header h2 {
+      color: #f5c400;
+      font-weight: 700;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
+    nav a {
+      color: #ffffff;
+      margin-left: 25px;
+      font-size: 15px;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+    nav a:hover {
+      color: #f5c400;
+    }
 
-        nav a:hover {
-            color: var(--yellow);
-        }
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      background: #0b0b0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-        .hero {
-            background: linear-gradient(135deg, var(--black) 0%, #2a2a2a 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
+    /* Glow graphic */
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(
+        circle,
+        rgba(245, 196, 0, 0.18),
+        rgba(245, 196, 0, 0)
+      );
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--yellow);
-        }
+    /* Subtle grid texture */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
 
-        .hero p {
-            font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #e0e0e0;
-        }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      padding: 20px;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
+    .hero-content h1 {
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      color: #f5c400;
+      margin-bottom: 20px;
+    }
 
-        .section {
-            margin-bottom: 60px;
-        }
+    .hero-content p {
+      color: #e0e0e0;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
 
-        .section h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: var(--black);
-            border-left: 5px solid var(--yellow);
-            padding-left: 15px;
-        }
+    .hero-btn {
+      display: inline-block;
+      padding: 16px 38px;
+      background: #f5c400;
+      color: #000;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
 
-        .section p {
-            font-size: 18px;
-            color: var(--text);
-            margin-bottom: 15px;
-        }
+    .hero-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(245, 196, 0, 0.35);
+    }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+    /* SECTION */
+    section {
+      padding: 90px 60px;
+    }
 
-        .feature-card {
-            background: var(--grey);
-            padding: 30px;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+    .section-title h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
 
-        .feature-card h3 {
-            color: var(--black);
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
+    .section-title p {
+      color: #555;
+    }
 
-        .feature-card p {
-            color: var(--text);
-            font-size: 16px;
-        }
+    /* SERVICES */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
 
-        .stats {
-            background: var(--yellow);
-            padding: 60px 20px;
-            text-align: center;
-        }
+    .service-card {
+      padding: 35px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
 
-        .stat-item h3 {
-            font-size: 48px;
-            color: var(--black);
-            margin-bottom: 10px;
-        }
+    .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #f5c400;
+      margin: 0 auto 20px;
+    }
 
-        .stat-item p {
-            font-size: 18px;
-            color: var(--black);
-        }
+    .service-card h3 {
+      margin-bottom: 10px;
+    }
 
-        .cta {
-            background: var(--black);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
+    /* HOW IT WORKS */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
 
-        .cta h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: var(--yellow);
-        }
+    .step {
+      padding: 30px;
+      background: #f9f9f9;
+      border-radius: 10px;
+    }
 
-        .cta-button {
-            display: inline-block;
-            background: var(--yellow);
-            color: var(--black);
-            padding: 15px 40px;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-top: 20px;
-        }
+    .step span {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #f5c400;
+    }
 
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(245, 196, 0, 0.4);
-        }
+    /* CTA */
+    .cta {
+      background: #0b0b0b;
+      text-align: center;
+      color: #fff;
+      padding: 80px 20px;
+    }
 
-        footer {
-            background: var(--grey);
-            padding: 30px 20px;
-            text-align: center;
-            color: var(--text);
-        }
+    .cta h2 {
+      color: #f5c400;
+      margin-bottom: 20px;
+    }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 32px;
-            }
+    /* FOOTER */
+    footer {
+      background: #000;
+      color: #777;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+    }
 
-            .hero p {
-                font-size: 16px;
-            }
+    /* MOBILE */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
 
-            nav ul {
-                gap: 15px;
-            }
-
-            .section h2 {
-                font-size: 28px;
-            }
-        }
-    </style>
+      nav {
+        margin-top: 10px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <div class="logo">Reachwave</div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section class="hero">
-        <h1>About Reachwave</h1>
-        <p>We're a performance-driven lead generation agency dedicated to helping home improvement businesses scale through strategic digital marketing</p>
-    </section>
+  <!-- NAV -->
+  <header>
+    <h2>Reachwave</h2>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#how">How It Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <div class="container">
-        <section class="section">
-            <h2>Who We Are</h2>
-            <p>Reachwave is a specialized lead generation agency focused exclusively on home improvement services. We understand the unique challenges contractors, remodelers, and home service providers face when trying to grow their business in today's competitive digital landscape.</p>
-            <p>Our team combines expertise in digital advertising, conversion optimization, and the home improvement industry to deliver qualified leads that turn into real revenue for your business.</p>
-        </section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Ready to Grow Your Business?</h1>
+      <p>We help home improvement businesses generate consistent, high-quality leads through performance-driven social media advertising.</p>
+      <a href="#contact" class="hero-btn">Get Started Today</a>
+    </div>
+  </section>
 
-        <section class="section">
-            <h2>Our Approach</h2>
-            <p>We don't believe in one-size-fits-all solutions. Every home improvement business is different, and we tailor our strategies to your specific services, target market, and growth goals. Our data-driven approach ensures every dollar you invest works harder to bring you qualified leads.</p>
-        </section>
-
-        <section class="section">
-            <h2>What We Do Best</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <h3>Targeted Ad Campaigns</h3>
-                    <p>We create and manage high-converting ad campaigns on Facebook, Google, and other platforms to reach homeowners actively seeking your services.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Lead Qualification</h3>
-                    <p>Not all leads are created equal. We filter and qualify prospects to ensure you're only spending time on homeowners ready to invest in their projects.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Performance Tracking</h3>
-                    <p>Complete transparency with real-time dashboards showing exactly where your leads come from and which campaigns deliver the best ROI.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Conversion Optimization</h3>
-                    <p>We continuously test and refine landing pages, ad copy, and targeting to maximize your lead quality and minimize cost per acquisition.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Industry Expertise</h3>
-                    <p>Deep knowledge of the home improvement market means we speak your language and understand your customers' needs.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>Scalable Systems</h3>
-                    <p>Whether you're a small local contractor or a regional powerhouse, our systems scale with your business as you grow.</p>
-                </div>
-            </div>
-        </section>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Focused on results, not vanity metrics</p>
     </div>
 
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h3>500+</h3>
-                <p>Qualified Leads Generated</p>
-            </div>
-            <div class="stat-item">
-                <h3>50+</h3>
-                <p>Active Clients</p>
-            </div>
-            <div class="stat-item">
-                <h3>3.2x</h3>
-                <p>Average ROI</p>
-            </div>
-            <div class="stat-item">
-                <h3>95%</h3>
-                <p>Client Retention Rate</p>
-            </div>
-        </div>
-    </section>
+    <div class="services">
+      <div class="service-card">
+        <div class="icon"></div>
+        <h3>Lead Generation</h3>
+        <p>High-intent enquiries for home improvement services.</p>
+      </div>
 
-    <div class="container">
-        <section class="section">
-            <h2>Why Home Improvement?</h2>
-            <p>The home improvement industry is our specialty because we've seen firsthand how traditional marketing falls short for contractors and service providers. Homeowners today start their search online, and they need to find you at the exact moment they're ready to hire.</p>
-            <p>We've invested years understanding what makes homeowners click, call, and commit to projects. From kitchen remodels to roofing replacements, HVAC installations to bathroom renovations, we know how to connect you with customers who are ready to invest in their homes.</p>
-        </section>
+      <div class="service-card">
+        <div class="icon"></div>
+        <h3>Ad Optimisation</h3>
+        <p>Continuous testing to reduce cost per lead.</p>
+      </div>
 
-        <section class="section">
-            <h2>Our Mission</h2>
-            <p>To be the most trusted growth partner for home improvement businesses, delivering consistent, high-quality leads that fuel sustainable business growth. We succeed when you succeed, and we measure our performance by the real revenue impact we create for our clients.</p>
-        </section>
+      <div class="service-card">
+        <div class="icon"></div>
+        <h3>Transparent Reporting</h3>
+        <p>Clear performance metrics you can trust.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="section-title">
+      <h2>How It Works</h2>
+      <p>Simple, transparent, performance-driven</p>
     </div>
 
-    <section class="cta">
-        <h2>Ready to Grow Your Business?</h2>
-        <p style="color: #e0e0e0; font-size: 18px; margin-bottom: 10px;">Let's discuss how Reachwave can help you generate more qualified leads</p>
-        <a href="contact.html" class="cta-button">Get Started Today</a>
-    </section>
+    <div class="steps">
+      <div class="step">
+        <span>1</span>
+        <p>We set up targeted ads for your service area.</p>
+      </div>
+      <div class="step">
+        <span>2</span>
+        <p>Leads are generated and sent directly to you.</p>
+      </div>
+      <div class="step">
+        <span>3</span>
+        <p>You close the deal and pay only on results.</p>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Reachwave. All rights reserved. | Specialized Lead Generation for Home Improvement Services</p>
-    </footer>
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <h2>Let’s Build Your Lead Pipeline</h2>
+    <p>Get clarity on how Reachwave can help your business grow.</p>
+    <br>
+    <a href="mailto:contact@reachwavedigital.online" class="hero-btn">Contact Us</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Reachwave. All rights reserved.
+  </footer>
+
 </body>
 </html>
