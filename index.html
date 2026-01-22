@@ -52,11 +52,14 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            letter-spacing: -0.5px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
         }
 
         nav ul {
@@ -378,7 +381,9 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="#home" class="logo">Reachwave</a>
+            <a href="#home" class="logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Ccircle cx='250' cy='250' r='200' fill='%23FFD700'/%3E%3Ccircle cx='250' cy='250' r='200' fill='none' stroke='%23000' stroke-width='12'/%3E%3Ctext x='250' y='220' font-family='Arial Black, sans-serif' font-size='85' font-weight='900' text-anchor='middle' fill='%23000'%3EREACH%3C/text%3E%3Ctext x='250' y='300' font-family='Arial Black, sans-serif' font-size='85' font-weight='900' text-anchor='middle' fill='%23000'%3EWAVE%3C/text%3E%3Ctext x='250' y='340' font-family='Arial, sans-serif' font-size='24' text-anchor='middle' fill='%23000'%3ESocial Success%3C/text%3E%3C/svg%3E" alt="Reachwave">
+            </a>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
             <ul id="nav-menu">
                 <li><a href="#home">Home</a></li>
@@ -486,8 +491,8 @@
                 <h2>Let's Talk</h2>
                 <p>Ready to generate consistent, high-quality leads for your home improvement business? Get in touch and we'll discuss how Reachwave can help you grow.</p>
                 <div class="contact-buttons">
-                    <a href="mailto:hello@reachwave.com" class="cta-button">Email Us</a>
-                    <a href="https://wa.me/1234567890" class="cta-button cta-button-secondary">WhatsApp</a>
+                    <a href="mailto:hello@reachwavedigital.online" class="cta-button">Email Us</a>
+                    <a href="https://wa.me/918147285610" class="cta-button cta-button-secondary" target="_blank" rel="noopener">WhatsApp</a>
                 </div>
             </div>
         </div>
@@ -497,6 +502,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 Reachwave. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;"><a href="https://instagram.com/reach_wave" target="_blank" rel="noopener" style="color: #FFD700; text-decoration: none;">@reach_wave</a></p>
         </div>
     </footer>
 
