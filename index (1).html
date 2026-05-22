@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ReachWave — AI Lead Generation Agency</title>
+  <meta name="description" content="ReachWave is an AI-powered lead generation agency helping renovation, interior design, solar and home automation businesses get qualified leads on a performance basis."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --yellow: #FFD600;
+      --yellow-dim: #C9A900;
+      --black: #080808;
+      --dark: #111111;
+      --card: #161616;
+      --border: #252525;
+      --text: #E8E8E8;
+      --muted: #d4d4d4;
+      --white: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 42px;
+      width: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .nav-logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--yellow);
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    .nav-logo-sub {
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+
+    .nav-cta {
+      background: var(--yellow);
+      color: var(--black) !important;
+      padding: 9px 20px;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      letter-spacing: 1px;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--white) !important;
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--yellow);
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,214,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,214,0,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,214,0,0.07) 0%, transparent 70%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,214,0,0.1);
+      border: 1px solid rgba(255,214,0,0.25);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--yellow);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.4); }
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 0.95;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 0.4em;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    h1 span { color: var(--yellow); }
+
+    .hero-sub {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: #d4d4d4;
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      line-height: 1.7;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--yellow);
+      color: var(--black);
+      padding: 15px 32px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.25s;
+      border: 2px solid var(--yellow);
+    }
+
+    .btn-primary:hover {
+      background: var(--white);
+      border-color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255,214,0,0.25);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text);
+      padding: 15px 32px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 2px solid var(--border);
+      transition: all 0.25s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+      animation: fadeUp 0.6s 0.4s ease both;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {}
+
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: var(--yellow);
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 4px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-section {
+      background: var(--yellow);
+      padding: 14px 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 25s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 24px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .marquee-item::after {
+      content: '◆';
+      font-size: 0.5rem;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 100px 5%; position: relative; z-index: 1; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    h2 span { color: var(--yellow); }
+
+    .section-desc {
+      color: #d4d4d4;
+      max-width: 540px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── INDUSTRIES ── */
+    #industries { background: var(--dark); }
+
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    .industry-card {
+      background: var(--card);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: default;
+    }
+
+    .industry-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--yellow);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .industry-card:hover { background: #1a1a1a; }
+    .industry-card:hover::before { transform: scaleX(1); }
+
+    .industry-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .industry-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .industry-desc {
+      font-size: 0.9rem;
+      color: #d4d4d4;
+      line-height: 1.6;
+    }
+
+    .industry-cpl {
+      display: inline-block;
+      margin-top: 1.2rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      background: rgba(255,214,0,0.08);
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    #how-it-works {}
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1.5px solid var(--border);
+    }
+
+    .step-card {
+      padding: 3rem;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .step-card:hover { background: rgba(255,214,0,0.02); }
+
+    .step-card:nth-child(even) { border-right: none; }
+    .step-card:nth-last-child(-n+2) { border-bottom: none; }
+
+    .step-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: rgba(255,214,0,0.08);
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      letter-spacing: 2px;
+    }
+
+    .step-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      background: rgba(255,214,0,0.1);
+      padding: 4px 10px;
+      border-radius: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .step-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .step-desc {
+      font-size: 0.92rem;
+      color: #d4d4d4;
+      line-height: 1.7;
+    }
+
+    .step-tool {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 1.2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+
+    .step-tool::before {
+      content: '⚡';
+      font-size: 0.75rem;
+    }
+
+    /* ── RESULTS ── */
+    #results { background: var(--dark); }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .result-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .result-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,214,0,0.3);
+    }
+
+    .result-card::before {
+      content: '"';
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 8rem;
+      color: rgba(255,214,0,0.05);
+      position: absolute;
+      top: -1rem;
+      left: 1.5rem;
+      line-height: 1;
+    }
+
+    .result-industry {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 1.2rem;
+      background: rgba(255,214,0,0.1);
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+
+    .result-metrics {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .metric {}
+
+    .metric-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      color: var(--yellow);
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+
+    .metric-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .result-quote {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .result-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      color: var(--yellow);
+      flex-shrink: 0;
+    }
+
+    .result-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    .result-role {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .stars {
+      color: var(--yellow);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── SERVICES ── */
+    #services {}
+
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1.5px solid var(--border);
+    }
+
+    .service-row {
+      display: flex;
+      align-items: center;
+      padding: 2rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+      gap: 2rem;
+      transition: background 0.25s;
+      cursor: default;
+    }
+
+    .service-row:last-child { border-bottom: none; }
+    .service-row:hover { background: rgba(255,214,0,0.03); }
+
+    .service-row:hover .service-arrow { transform: translateX(4px); color: var(--yellow); }
+
+    .service-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: rgba(255,214,0,0.3);
+      min-width: 40px;
+      letter-spacing: 1px;
+    }
+
+    .service-info { flex: 1; }
+
+    .service-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .service-detail {
+      font-size: 0.88rem;
+      color: #d4d4d4;
+    }
+
+    .service-arrow {
+      font-size: 1.2rem;
+      color: var(--border);
+      transition: all 0.25s;
+    }
+
+    /* ── WHY US ── */
+    #why-us { background: var(--dark); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      border-radius: 6px;
+      transition: border-color 0.3s;
+    }
+
+    .why-card:hover { border-color: rgba(255,214,0,0.3); }
+
+    .why-card.featured {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      grid-column: span 2;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .why-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .why-card.featured .why-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--black);
+      line-height: 1;
+    }
+
+    .why-text {
+      font-size: 0.9rem;
+      color: #d4d4d4;
+      line-height: 1.7;
+    }
+
+    .why-card.featured .why-text {
+      color: rgba(0,0,0,0.65);
+      font-size: 1rem;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--black);
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-left h2 {
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-left p {
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 1.2rem 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--yellow);
+      color: var(--yellow);
+      transform: translateX(4px);
+    }
+
+    .contact-link-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .contact-link-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .contact-form {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+
+    .form-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.8rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--yellow);
+    }
+
+    select option { background: var(--dark); }
+
+    textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--yellow);
+      color: var(--black);
+      border: none;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: all 0.25s;
+    }
+
+    .form-submit:hover {
+      background: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255,214,0,0.2);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 3rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      color: var(--yellow);
+      letter-spacing: 2px;
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--yellow); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 99;
+      background: #25D366;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeUp 1s 0.8s ease both;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37,211,102,0.5);
+    }
+
+    .whatsapp-float svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .steps-container { grid-template-columns: 1fr; }
+      .step-card { border-right: none !important; }
+      .step-card:last-child { border-bottom: none; }
+
+      .why-grid { grid-template-columns: 1fr; }
+      .why-card.featured { grid-column: span 1; flex-direction: column; gap: 1rem; }
+
+      .contact-wrapper { grid-template-columns: 1fr; gap: 3rem; }
+
+      .hero-stats { gap: 2rem; }
+
+      section { padding: 70px 5%; }
+    }
+
+    @media (max-width: 480px) {
+      .steps-container { grid-template-columns: 1fr; }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#home" class="nav-logo">
+      <img src="Reach__3_.png" alt="ReachWave Logo" onerror="this.style.display='none'"/>
+      <div>
+        <div class="nav-logo-text">ReachWave</div>
+        <div class="nav-logo-sub">AI Lead Generation</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#contact" class="nav-cta">Get Leads</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-badge">AI-Powered Lead Generation</div>
+      <h1>Stop Chasing.<br><span>Start Closing.</span></h1>
+      <p class="hero-sub">
+        We build AI-powered lead generation systems that deliver qualified, ready-to-buy prospects directly to your business — on a pure performance basis. You pay only for results.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get Qualified Leads →</a>
+        <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Leads Delivered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4.3x</div>
+          <div class="stat-label">Avg. Return on Ad Spend</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">₹0</div>
+          <div class="stat-label">If We Don't Deliver</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">48hr</div>
+          <div class="stat-label">Campaign Launch Time</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">AI Lead Generation</span>
+      <span class="marquee-item">Performance Based Pricing</span>
+      <span class="marquee-item">Meta & Instagram Ads</span>
+      <span class="marquee-item">WhatsApp Automation</span>
+      <span class="marquee-item">AI Lead Qualification</span>
+      <span class="marquee-item">Real Time Reporting</span>
+      <span class="marquee-item">Zero Monthly Fees</span>
+      <span class="marquee-item">Renovation & Interior Design</span>
+      <span class="marquee-item">Solar & Home Automation</span>
+      <span class="marquee-item">AI Lead Generation</span>
+      <span class="marquee-item">Performance Based Pricing</span>
+      <span class="marquee-item">Meta & Instagram Ads</span>
+      <span class="marquee-item">WhatsApp Automation</span>
+      <span class="marquee-item">AI Lead Qualification</span>
+      <span class="marquee-item">Real Time Reporting</span>
+      <span class="marquee-item">Zero Monthly Fees</span>
+      <span class="marquee-item">Renovation & Interior Design</span>
+      <span class="marquee-item">Solar & Home Automation</span>
+    </div>
+  </div>
+
+  <!-- INDUSTRIES -->
+  <section id="industries">
+    <div class="section-header reveal">
+      <div>
+        <span class="section-tag">Who We Serve</span>
+        <h2>Built For <span>High-Value</span><br>Home Industries</h2>
+      </div>
+      <p class="section-desc">We specialise in industries where every lead is worth thousands — and generic agencies simply don't understand the customer journey.</p>
+    </div>
+    <div class="industries-grid reveal">
+      <div class="industry-card">
+        <span class="industry-icon">🏗️</span>
+        <div class="industry-name">Home Renovation</div>
+        <div class="industry-desc">Kitchen remodels, bathroom upgrades, full home renovations. We target homeowners actively planning projects — not just browsing.</div>
+        <span class="industry-cpl">High Intent Leads</span>
+      </div>
+      <div class="industry-card">
+        <span class="industry-icon">🛋️</span>
+        <div class="industry-name">Interior Design</div>
+        <div class="industry-desc">New homes, office spaces, luxury residential. We connect interior designers with clients who have budgets and timelines ready.</div>
+        <span class="industry-cpl">Project-Ready Clients</span>
+      </div>
+      <div class="industry-card">
+        <span class="industry-icon">☀️</span>
+        <div class="industry-name">Solar Energy</div>
+        <div class="industry-desc">Residential and commercial solar installation leads. Our AI targets homeowners with the right roof type, location, and electricity bills.</div>
+        <span class="industry-cpl">Pre-Qualified Leads</span>
+      </div>
+      <div class="industry-card">
+        <span class="industry-icon">🏠</span>
+        <div class="industry-name">Home Automation</div>
+        <div class="industry-desc">Smart home systems, security, lighting, and climate control. We reach tech-forward homeowners ready to upgrade their living experience.</div>
+        <span class="industry-cpl">Tech-Forward Buyers</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="section-header reveal">
+      <div>
+        <span class="section-tag">The System</span>
+        <h2>How Our <span>AI</span><br>Generates Leads</h2>
+      </div>
+      <p class="section-desc">Seven interconnected AI-powered steps — from finding your ideal customer to delivering a qualified lead straight to your phone.</p>
+    </div>
+    <div class="steps-container reveal">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <div class="step-tag">Discovery</div>
+        <div class="step-title">Strategy & Audience Mapping</div>
+        <p class="step-desc">We analyse your ideal customer — location, income, home ownership, buying intent — and build a precision targeting profile using AI data insights.</p>
+        <div class="step-tool">ChatGPT + Meta Audience Insights</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <div class="step-tag">Creative</div>
+        <div class="step-title">AI-Generated Ad Creatives</div>
+        <p class="step-desc">Our AI generates and A/B tests multiple ad variations — images, copy, headlines — and automatically pushes budget towards the best performing ones.</p>
+        <div class="step-tool">AdCreative.ai + Meta Advantage+</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <div class="step-tag">Capture</div>
+        <div class="step-title">High-Converting Landing Funnels</div>
+        <p class="step-desc">Every ad clicks through to an optimised landing page built for your specific industry — not a generic form. Designed to convert, not just collect.</p>
+        <div class="step-tool">Systeme.io Funnels</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">04</div>
+        <div class="step-tag">Qualify</div>
+        <div class="step-title">AI Chatbot Lead Qualification</div>
+        <p class="step-desc">Our WhatsApp AI chatbot automatically asks qualification questions 24/7 — budget, timeline, location, project type. Only serious leads get through to you.</p>
+        <div class="step-tool">ManyChat AI + WhatsApp Business</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">05</div>
+        <div class="step-tag">Deliver</div>
+        <div class="step-title">Real-Time Lead Delivery</div>
+        <p class="step-desc">Qualified leads are instantly delivered to your WhatsApp and CRM the moment they complete qualification — no delays, no batching, no waiting.</p>
+        <div class="step-tool">Zapier Automation + CRM</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">06</div>
+        <div class="step-tag">Nurture</div>
+        <div class="step-title">Automated Follow-Up Sequences</div>
+        <p class="step-desc">Leads who don't respond immediately get AI-triggered follow-up messages over 7 days — so no lead ever goes cold on its own.</p>
+        <div class="step-tool">WhatsApp Automation + Email</div>
+      </div>
+      <div class="step-card" style="grid-column: span 2; border-bottom: none;">
+        <div class="step-number">07</div>
+        <div class="step-tag">Optimise</div>
+        <div class="step-title">Live Performance Dashboard & Reporting</div>
+        <p class="step-desc">A real-time dashboard shows you exactly how many leads came in, at what cost, from which campaign — with weekly AI-generated performance summaries. Full transparency, always.</p>
+        <div class="step-tool">Google Looker Studio + AI Reports</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="section-header reveal">
+      <div>
+        <span class="section-tag">Proof</span>
+        <h2>Real Campaigns.<br><span>Real Numbers.</span></h2>
+      </div>
+      <p class="section-desc">Performance-based pricing means we only win when you win. Here's what that looks like in practice.</p>
+    </div>
+    <div class="results-grid reveal">
+      <div class="result-card">
+        <div class="result-industry">Solar Energy — Hyderabad</div>
+        <div class="stars">★★★★★</div>
+        <div class="result-metrics">
+          <div class="metric">
+            <div class="metric-value">47</div>
+            <div class="metric-label">Leads / Month</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">₹620</div>
+            <div class="metric-label">Cost Per Lead</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">9</div>
+            <div class="metric-label">Conversions</div>
+          </div>
+        </div>
+        <p class="result-quote">"We were spending ₹40,000 a month with another agency and getting maybe 8 leads. ReachWave delivered 47 qualified leads in our first month. The AI qualification meant every lead already knew our pricing before we called them."</p>
+        <div class="result-author">
+          <div class="result-avatar">RK</div>
+          <div>
+            <div class="result-name">Ramesh Kumar</div>
+            <div class="result-role">Director, SunPower Solar Solutions</div>
+          </div>
+        </div>
+      </div>
+      <div class="result-card">
+        <div class="result-industry">Interior Design — Bengaluru</div>
+        <div class="stars">★★★★★</div>
+        <div class="result-metrics">
+          <div class="metric">
+            <div class="metric-value">38</div>
+            <div class="metric-label">Leads / Month</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">₹850</div>
+            <div class="metric-label">Cost Per Lead</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">6</div>
+            <div class="metric-label">Projects Closed</div>
+          </div>
+        </div>
+        <p class="result-quote">"The quality of leads is what sets ReachWave apart. We were getting random inquiries before. Now every lead that comes through has a clear budget, timeline, and project scope. Our closure rate went from 8% to 22%."</p>
+        <div class="result-author">
+          <div class="result-avatar">PA</div>
+          <div>
+            <div class="result-name">Priya Anand</div>
+            <div class="result-role">Founder, Studio Anand Interiors</div>
+          </div>
+        </div>
+      </div>
+      <div class="result-card">
+        <div class="result-industry">Home Renovation — Mumbai</div>
+        <div class="stars">★★★★★</div>
+        <div class="result-metrics">
+          <div class="metric">
+            <div class="metric-value">31</div>
+            <div class="metric-label">Leads / Month</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">4.1x</div>
+            <div class="metric-label">Return on Ad Spend</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">₹0</div>
+            <div class="metric-label">Wasted on Bad Leads</div>
+          </div>
+        </div>
+        <p class="result-quote">"Performance-based pricing was the game changer for us. I was tired of paying retainers for agencies that promised results but delivered excuses. With ReachWave, if there are no leads, there is no payment. Simple."</p>
+        <div class="result-author">
+          <div class="result-avatar">VN</div>
+          <div>
+            <div class="result-name">Vikram Nair</div>
+            <div class="result-role">Owner, BuildRight Renovations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-header reveal">
+      <div>
+        <span class="section-tag">What We Do</span>
+        <h2>Everything You Need.<br><span>Nothing You Don't.</span></h2>
+      </div>
+      <p class="section-desc">A complete lead generation stack — built, managed, and optimised by us. You focus on closing deals.</p>
+    </div>
+    <div class="services-list reveal">
+      <div class="service-row">
+        <div class="service-num">01</div>
+        <div class="service-info">
+          <div class="service-name">Meta & Instagram Advertising</div>
+          <div class="service-detail">AI-optimised campaigns across Facebook and Instagram with Advantage+ targeting to reach your exact ideal customer.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">02</div>
+        <div class="service-info">
+          <div class="service-name">Landing Page & Funnel Build</div>
+          <div class="service-detail">High-converting funnels built specifically for your industry — not templates, purpose-built conversion machines.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">03</div>
+        <div class="service-info">
+          <div class="service-name">AI WhatsApp Lead Qualification</div>
+          <div class="service-detail">24/7 AI chatbot that qualifies every lead on WhatsApp before they reach you — filtering out time-wasters automatically.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">04</div>
+        <div class="service-info">
+          <div class="service-name">Automated Follow-Up System</div>
+          <div class="service-detail">Multi-step AI follow-up sequences via WhatsApp and email — ensuring no lead goes cold after the first touchpoint.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">05</div>
+        <div class="service-info">
+          <div class="service-name">Real-Time Reporting Dashboard</div>
+          <div class="service-detail">Live Looker Studio dashboard with full campaign transparency — leads, cost per lead, ROAS, and weekly AI performance summaries.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row">
+        <div class="service-num">06</div>
+        <div class="service-info">
+          <div class="service-name">Campaign Management & Optimisation</div>
+          <div class="service-detail">Ongoing daily monitoring, A/B testing, and AI-driven budget reallocation to continuously lower your cost per lead.</div>
+        </div>
+        <div class="service-arrow">→</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why-us">
+    <div class="section-header reveal">
+      <div>
+        <span class="section-tag">Why ReachWave</span>
+        <h2>We're Not <span>Another</span><br>Marketing Agency.</h2>
+      </div>
+      <p class="section-desc">Most agencies charge you whether they deliver or not. We don't. Here's what makes us different.</p>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <span class="why-icon">💰</span>
+        <div class="why-title">Performance-Based Pricing</div>
+        <p class="why-text">You pay only for qualified leads delivered. No monthly retainer. No setup fees. No payment for leads that don't meet your criteria. Pure performance.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🤖</span>
+        <div class="why-title">AI at Every Step</div>
+        <p class="why-text">From ad creation to lead qualification to follow-up, AI works 24/7 on your campaigns — delivering better results at lower cost than human-only agencies.</p>
+      </div>
+      <div class="why-card featured">
+        <div>
+          <div class="why-title">We Only Win<br>When You Win.</div>
+          <p class="why-text">Our performance model means our incentives are completely aligned with yours. We don't get paid for impressions, clicks, or "brand awareness." We get paid for leads. That's it.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🎯</span>
+        <div class="why-title">Industry Specialists</div>
+        <p class="why-text">We work exclusively with renovation, interior design, solar, and home automation businesses. Deep industry knowledge means better targeting, better copy, better results.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">📊</span>
+        <div class="why-title">Full Transparency</div>
+        <p class="why-text">Real-time dashboards. No black box. You see exactly where your leads come from, what they cost, and how campaigns are performing — at any moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-wrapper">
+      <div class="contact-left reveal">
+        <span class="section-tag">Get Started</span>
+        <h2>Ready for<br><span>Real Leads?</span></h2>
+        <p>Tell us about your business and we'll put together a custom lead generation strategy — completely free, no obligation. Based in Bengaluru, serving clients across India and globally.</p>
+        <div class="contact-links">
+          <a href="https://wa.me/918147285610" class="contact-link" target="_blank">
+            <span class="contact-link-icon">💬</span>
+            <div>
+              <span class="contact-link-label">WhatsApp</span>
+              +91 81472 85610
+            </div>
+          </a>
+          <a href="mailto:hello@reachwave.digital" class="contact-link">
+            <span class="contact-link-icon">✉️</span>
+            <div>
+              <span class="contact-link-label">Email</span>
+              hello@reachwave.digital
+            </div>
+          </a>
+          <a href="https://instagram.com/reach_wave" class="contact-link" target="_blank">
+            <span class="contact-link-icon">📸</span>
+            <div>
+              <span class="contact-link-label">Instagram</span>
+              @reach_wave
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <div class="form-title">Get Your Free Strategy Call</div>
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Rahul Sharma"/>
+        </div>
+        <div class="form-group">
+          <label>Business Name</label>
+          <input type="text" placeholder="Your Company Name"/>
+        </div>
+        <div class="form-group">
+          <label>Industry</label>
+          <select>
+            <option value="">Select your industry</option>
+            <option>Home Renovation</option>
+            <option>Interior Design</option>
+            <option>Solar Energy</option>
+            <option>Home Automation</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp Number</label>
+          <input type="tel" placeholder="+91 98765 43210"/>
+        </div>
+        <div class="form-group">
+          <label>Monthly Ad Budget (Optional)</label>
+          <select>
+            <option value="">Select budget range</option>
+            <option>Under ₹20,000/month</option>
+            <option>₹20,000 – ₹50,000/month</option>
+            <option>₹50,000 – ₹1,00,000/month</option>
+            <option>Above ₹1,00,000/month</option>
+          </select>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Send My Details →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">ReachWave</div>
+    <div class="footer-copy">© 2026 ReachWave. Bengaluru, India. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#industries">Industries</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="https://instagram.com/reach_wave" target="_blank">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/918147285610" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Mobile menu
+    function toggleMenu() {
+      const links = document.querySelector('.nav-links');
+      if (links.style.display === 'flex') {
+        links.style.display = 'none';
+      } else {
+        links.style.cssText = `
+          display: flex;
+          flex-direction: column;
+          position: fixed;
+          top: 70px;
+          left: 0;
+          right: 0;
+          background: #080808;
+          border-bottom: 1px solid #252525;
+          padding: 1.5rem 5%;
+          gap: 1.2rem;
+          z-index: 99;
+        `;
+      }
+    }
+
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        const links = document.querySelector('.nav-links');
+        links.style.display = 'none';
+      });
+    });
+
+    // Form submit
+    function submitForm() {
+      const btn = document.querySelector('.form-submit');
+      btn.textContent = 'Sending...';
+      btn.style.opacity = '0.7';
+      setTimeout(() => {
+        btn.textContent = '✓ We\'ll WhatsApp You Within 1 Hour!';
+        btn.style.background = '#25D366';
+        btn.style.opacity = '1';
+        window.open('https://wa.me/918147285610?text=Hi%20ReachWave%2C%20I%20submitted%20the%20form%20on%20your%20website%20and%20would%20like%20to%20discuss%20lead%20generation%20for%20my%20business.', '_blank');
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
